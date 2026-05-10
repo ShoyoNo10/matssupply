@@ -79,8 +79,8 @@ export default async function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white/95 shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
-        <Link href="/" className="text-2xl font-black text-orange-700">
-          MatsSupply
+        <Link href="/" className="text-2xl font-black text-blue-900">
+          Matsupply
         </Link>
 
         <div className="md:hidden">
@@ -100,7 +100,7 @@ export default async function Header() {
                   <div key={String(cat._id)}>
                     <Link
                       href={`/category/${cat.slug}`}
-                      className="mb-2 block text-lg font-black hover:text-orange-700"
+                      className="mb-2 block text-lg font-black hover:text-blue-900"
                     >
                       • {cat.name}
                     </Link>
@@ -114,7 +114,7 @@ export default async function Header() {
                           <Link
                             key={String(s._id)}
                             href={`/category/${s.slug}`}
-                            className="block hover:text-orange-700"
+                            className="block hover:text-blue-900"
                           >
                             - {s.name}
                           </Link>
