@@ -1,0 +1,1 @@
+export default function About(){return <main className="mx-auto max-w-4xl px-4 py-12"><h1 className="text-3xl font-black">About</h1><p className="mt-4 text-gray-700">Манай сайт нь барилгын материалын бараа бүтээгдэхүүний танилцуулга, үнэ, дэлгэрэнгүй мэдээллийг хэрэглэгчдэд ойлгомжтой хүргэнэ.</p></main>}

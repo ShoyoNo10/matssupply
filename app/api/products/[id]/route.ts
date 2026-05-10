@@ -1,0 +1,4 @@
+import { NextResponse } from "next/server"; import { connectDB } from "@/lib/db"; import { slugify } from "@/lib/slug"; import { ProductModel } from "@/models/Product";
+type ProductUpdate={title?:string;price?:number;shortDescription?:string;description?:string;imageUrl?:string;categoryId?:string;subCategoryId?:string;specs?:{key:string;value:string}[]};
+export async function PUT(req:Request,{params}:{params:Promise<{id:string}>}){ const {id}=await params; await connectDB(); const body=await req.json() as ProductUpdate; const update={...body, ...(body.title?{slug:slugify(body.title)}:{}), subCategoryId: body.subCategoryId || undefined}; return NextResponse.json(await ProductModel.findByIdAndUpdate(id,update,{new:true})); }
+export async function DELETE(_req:Request,{params}:{params:Promise<{id:string}>}){ const {id}=await params; await connectDB(); await ProductModel.findByIdAndDelete(id); return NextResponse.json({ok:true}); }

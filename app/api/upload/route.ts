@@ -1,0 +1,3 @@
+import { NextResponse } from "next/server"; import { cloudinary } from "@/lib/cloudinary";
+type CloudinaryResult = { secure_url: string };
+export async function POST(req: Request){ const form=await req.formData(); const file=form.get("file"); if(!(file instanceof File)) return NextResponse.json({error:"file байхгүй"},{status:400}); const bytes=await file.arrayBuffer(); const buffer=Buffer.from(bytes); const result=await new Promise<CloudinaryResult>((resolve,reject)=>{ const stream=cloudinary.uploader.upload_stream({folder:"barilga-web"},(err,res)=>{ if(err||!res) reject(err); else resolve({secure_url:res.secure_url}); }); stream.end(buffer); }); return NextResponse.json({url:result.secure_url}); }
