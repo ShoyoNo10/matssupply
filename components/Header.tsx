@@ -89,7 +89,7 @@ export default async function Header() {
 
         <nav className="hidden items-center gap-7 font-bold md:flex">
           <Link href="/">Нүүр</Link>
-          <Link href="/about">Бидний тухай</Link>
+          <Link href="/about">Холбогдох</Link>
 
           <div className="group relative py-2">
             <button className="font-bold">Ангилал ▾</button>
